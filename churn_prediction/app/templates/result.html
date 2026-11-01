@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Prediction Result - ChurnGuard{% endblock %}
+
+{% block content %}
+<main class="main-content" style="padding-top: 80px;">
+    <div class="result-box">
+        <p class="subtitle">{{ result.display_name }} Domain Analysis</p>
+        <h1>Prediction for {{ result.user_id }}</h1>
+
+        {% if result.churn %}
+        <div class="result-badge churn-yes">&#9888; Likely to Churn</div>
+        {% else %}
+        <div class="result-badge churn-no">&#10003; Likely to Stay</div>
+        {% endif %}
+
+        <p>Churn Probability: <strong>{{ result.probability }}%</strong></p>
+
+        <div class="probability-bar">
+            <div class="probability-fill"
+                 data-probability="{{ result.probability }}"
+                 style="width: {{ result.probability }}%; background: {% if result.churn %}#dc2626{% else %}#16a34a{% endif %};">
+                {{ result.probability }}%
+            </div>
+        </div>
+
+        <a href="{{ url_for('pages.index') }}" class="back-link">&#8592; Analyze another customer</a>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,42 @@
+{# Renders one schema field. All markup stays here so pages stay declarative. #}
+{% macro render_field(field, value='', error='') %}
+<div class="form-group{{ ' has-error' if error else '' }}">
+    <label for="field-{{ field.name }}">{{ field.label }}</label>
+
+    {% if field.kind == 'select' %}
+    <select id="field-{{ field.name }}" name="{{ field.name }}"
+            {%- if field.required %} required{% endif %}
+            {%- if field.ui.locked_when %} data-locked-when="{{ field.ui.locked_when }}" data-locked-value="{{ field.ui.locked_value }}"{% endif %}>
+        {% for option in field.options %}
+        <option value="{{ option.value }}"
+                {{- ' selected' if value|string == option.value|string else '' }}>{{ option.label }}</option>
+        {% endfor %}
+    </select>
+
+    {% elif field.kind == 'radio' %}
+    <div class="radio-group"
+         {%- if field.ui.auto_check_from %} data-auto-check-from="{{ field.ui.auto_check_from }}" data-auto-check-threshold="{{ field.ui.threshold }}"{% endif %}>
+        {% for option in field.options %}
+        <label>
+            <input type="radio" name="{{ field.name }}" value="{{ option.value }}"
+                   {%- if field.required %} required{% endif %}
+                   {{- ' checked' if value|string == option.value|string else '' }}>
+            {{ option.label }}
+        </label>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <input type="{{ field.kind }}" id="field-{{ field.name }}" name="{{ field.name }}"
+           {%- if field.placeholder %} placeholder="{{ field.placeholder }}"{% endif %}
+           {%- if field.required %} required{% endif %}
+           {%- if field.minimum is not none %} min="{{ field.minimum|num }}"{% endif %}
+           {%- if field.maximum is not none %} max="{{ field.maximum|num }}"{% endif %}
+           {%- if field.step %} step="{{ field.step }}"{% endif %}
+           {%- if field.ui.derives %} data-derives="{{ field.ui.derives }}"{% endif %}
+           value="{{ value }}">
+    {% endif %}
+
+    {% if error %}<p class="form-error">{{ error }}</p>{% endif %}
+</div>
+{% endmacro %}

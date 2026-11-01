@@ -1,0 +1,14 @@
+{# Small reusable geometric decorations. #}
+{% macro deco(kind, style='', size='') %}
+<div class="geo-shape"{% if style %} style="{{ style }}"{% endif %}>
+    {% if kind == 'dot' %}
+    <div class="geo-dot"{% if size %} style="width:{{ size }}; height:{{ size }};"{% endif %}></div>
+    {% elif kind == 'square' %}
+    <div class="geo-square"{% if size %} style="width:{{ size }}; height:{{ size }};"{% endif %}></div>
+    {% elif kind == 'circle-sm' %}
+    <div class="geo-circle-sm"{% if size %} style="width:{{ size }}; height:{{ size }};"{% endif %}></div>
+    {% elif kind == 'corner' %}
+    <div class="geo-corner"{% if size %} style="width:{{ size }}; height:{{ size }};"{% endif %}></div>
+    {% endif %}
+</div>
+{% endmacro %}

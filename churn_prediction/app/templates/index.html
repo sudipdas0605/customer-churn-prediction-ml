@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% from 'macros/geo.html' import deco %}
+
+{% block title %}ChurnGuard - Customer Churn Prediction{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Geometric Shapes -->
+<section class="hero-section" style="position:relative; overflow:hidden;">
+    <!-- Geometric Decorations -->
+    <div class="geo-shape" style="top:40px; left:8%;">
+        <div class="geo-circle-dashed" style="width:90px; height:90px;"></div>
+        <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+        <span class="geo-label" style="position:absolute; top:-15px; left:50%; transform:translateX(-50%);">V4.2</span>
+    </div>
+    <div class="geo-shape" style="top:60px; right:10%;">
+        <div class="geo-circle" style="width:60px; height:60px;"></div>
+        <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+    </div>
+    <div class="geo-shape" style="top:180px; left:5%;">
+        <div class="geo-square"></div>
+    </div>
+    <div class="geo-shape" style="top:160px; left:12%;">
+        <div class="geo-corner"></div>
+        <span class="geo-label" style="position:absolute; top:20px; left:20px;">[node:c1]</span>
+    </div>
+    <div class="geo-shape" style="top:80px; right:5%;">
+        <span class="geo-label">[SYS-02]</span>
+    </div>
+    <div class="geo-shape" style="top:220px; right:8%;">
+        <div class="geo-diamond"></div>
+        <span class="geo-label" style="position:absolute; top:30px; left:-10px;">V4.8</span>
+    </div>
+    <div class="geo-shape" style="top:280px; left:8%;">
+        <div class="geo-circle-sm"></div>
+        <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+        <span class="geo-label" style="position:absolute; top:50px; left:-20px;">[x:34,y:88]</span>
+        <span class="geo-label" style="position:absolute; top:65px; left:-20px;">LAT: 42.1N</span>
+    </div>
+    <div class="geo-shape" style="top:300px; right:12%;">
+        <div class="geo-circle" style="width:50px; height:50px;"></div>
+        <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+    </div>
+    <div class="geo-shape" style="top:320px; right:5%;">
+        <span class="geo-label">SIG: 99.4%</span>
+    </div>
+    <!-- Additional Hero Shapes -->
+    <div class="geo-shape" style="top:120px; left:25%;">
+        <div class="geo-dot-lg"></div>
+    </div>
+    <div class="geo-shape" style="top:200px; right:25%;">
+        <div class="geo-corner-br" style="width:14px; height:14px;"></div>
+    </div>
+    <div class="geo-shape" style="top:350px; left:15%;">
+        <span class="geo-label">init:OK</span>
+    </div>
+    <div class="geo-shape" style="top:100px; left:45%;">
+        <div class="geo-line-v" style="height:40px;"></div>
+    </div>
+    <div class="geo-shape" style="top:250px; right:35%;">
+        <div class="geo-circle-sm" style="width:28px; height:28px;"></div>
+    </div>
+
+    <!-- Arrow shape -->
+    <div class="geo-shape" style="top:30px; left:50%; transform:translateX(-50%);">
+        <div class="geo-arrow">
+            <span>&#8594;</span>
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div style="position:relative; z-index:1;">
+        <h1 class="hero-title">
+            Stop Customer Churn<br>
+            <span class="green">Before It Happens</span>
+        </h1>
+        <p class="hero-desc">
+            Purpose-built AI prediction models calibrated for Banking, Telecom, and E-commerce
+            enterprises. Identify at-risk accounts with 94.8% accuracy and trigger proactive
+            retention workflows.
+        </p>
+        <a href="#sectors" class="hero-btn">Explore Industry Models &#8594;</a>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="content-wrapper">
+    <!-- 3-Step Process -->
+    <div class="steps-grid" style="position:relative;">
+        <div class="geo-shape" style="top:-20px; left:30px;">
+            <div class="geo-circle-sm"></div>
+            <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+        </div>
+        <div class="geo-shape" style="top:50%; right:-15px; transform:translateY(-50%);">
+            <div class="geo-diamond" style="width:28px; height:28px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:-15px; left:40%;">
+            <div class="geo-line-h" style="width:80px;"></div>
+        </div>
+        <div class="geo-shape" style="top:20px; right:25%;">
+            <span class="geo-label">STEP:01</span>
+        </div>
+
+        {% for step in steps %}
+        <div class="step-card" style="position:relative;">
+            <div class="step-header">
+                <span class="step-num">{{ loop.index }}</span>
+                <h3>{{ step.title }}</h3>
+            </div>
+            <p>{{ step.body }}</p>
+            {{ deco(step.deco_kind, step.deco_style, step.deco_size) }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Try Our Models -->
+    <div class="section-heading">
+        <h2>Try Our <span class="models-color-animate">Models</span></h2>
+        <p>Choose a domain below to start predicting churn risk</p>
+    </div>
+
+    <div class="domain-grid" id="sectors" style="position:relative;">
+        <div class="geo-shape" style="top:-25px; left:20px;">
+            <div class="geo-circle" style="width:70px; height:70px;"></div>
+            <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+            <span class="geo-label" style="position:absolute; top:-12px; left:50%; transform:translateX(-50%);">API:v2</span>
+        </div>
+        <div class="geo-shape" style="top:40%; left:-20px;">
+            <div class="geo-corner-br" style="width:18px; height:18px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:-20px; right:30px;">
+            <div class="geo-diamond" style="width:32px; height:32px;"></div>
+            <span class="geo-label" style="position:absolute; top:38px; left:-5px;">SEC:OK</span>
+        </div>
+        <div class="geo-shape" style="top:10px; right:15px;">
+            <span class="geo-label">loadModel()</span>
+        </div>
+
+        {% for domain in domains %}
+        <a href="{{ url_for('pages.form', domain=domain.key) }}" class="domain-card" style="position:relative;">
+            <div class="domain-icon">{{ domain.icon }}</div>
+            <h3>{{ domain.label }}</h3>
+            <p>{{ domain.blurb }}</p>
+            {{ deco(domain.deco_kind, domain.deco_style, domain.deco_size) }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- How It Detects Section -->
+    <section class="detect-section">
+        <div class="geo-shape" style="top:20px; right:40px;">
+            <div class="geo-circle-dashed" style="width:80px; height:80px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:20px; left:30px;">
+            <div class="geo-diamond" style="width:22px; height:22px;"></div>
+        </div>
+        <div class="geo-shape" style="top:30px; left:40px;">
+            <div class="geo-dot" style="width:8px; height:8px;"></div>
+        </div>
+        <div class="geo-shape" style="top:50%; right:20px; transform:translateY(-50%);">
+            <div class="geo-circle" style="width:50px; height:50px;"></div>
+            <div class="geo-dot" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+        </div>
+        <div class="geo-shape" style="bottom:30px; right:60px;">
+            <div class="geo-square" style="width:16px; height:16px;"></div>
+        </div>
+        <div class="geo-shape" style="top:60px; right:150px;">
+            <span class="geo-label">scan:ON</span>
+        </div>
+        <div class="geo-shape" style="bottom:50px; left:120px;">
+            <span class="geo-label">detect()</span>
+        </div>
+        <div class="geo-shape" style="top:40%; left:15px;">
+            <div class="geo-line-v" style="height:40px;"></div>
+        </div>
+        <div class="geo-shape" style="top:70px; left:180px;">
+            <div class="geo-corner" style="width:14px; height:14px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:25px; right:180px;">
+            <div class="geo-dot-lg"></div>
+        </div>
+
+        <div style="position:relative; z-index:1;">
+            <span class="badge">How It Works</span>
+            <h2 class="detect-title">What Our <span class="models-color-animate">Model</span> Detects</h2>
+            <p class="detect-intro">
+                Our machine learning models analyze the customer information you provide and identify
+                patterns associated with churn risk. Here is what the model looks at:
+            </p>
+
+            <div class="detect-grid">
+                {% for item in detections %}
+                <div class="detect-card">
+                    <div class="detect-card-head">
+                        <span class="detect-num">{{ loop.index }}</span>
+                        <h3>{{ item.title }}</h3>
+                    </div>
+                    <p>{{ item.body }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Goal Section -->
+    <section class="goal-section" id="goal" style="position:relative; overflow:hidden;">
+        <div class="geo-shape" style="top:30px; right:60px;">
+            <div class="geo-circle-dashed" style="width:120px; height:120px; border-color:rgba(255,255,255,0.3);"></div>
+        </div>
+        <div class="geo-shape" style="bottom:40px; right:100px;">
+            <div class="geo-diamond" style="border-color:rgba(255,255,255,0.25); width:30px; height:30px;"></div>
+        </div>
+        <div class="geo-shape" style="top:60px; right:200px;">
+            <div class="geo-dot" style="background:rgba(255,255,255,0.4); width:10px; height:10px;"></div>
+        </div>
+        <div class="geo-shape" style="top:20px; left:40px;">
+            <div class="geo-corner" style="border-color:rgba(255,255,255,0.3); width:20px; height:20px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:30px; left:60px;">
+            <div class="geo-square" style="border-color:rgba(255,255,255,0.25); width:18px; height:18px;"></div>
+        </div>
+        <div class="geo-shape" style="top:50%; left:20px; transform:translateY(-50%);">
+            <span class="geo-label" style="color:rgba(255,255,255,0.5);">retention++</span>
+        </div>
+        <div class="geo-shape" style="top:80px; left:150px;">
+            <div class="geo-line-h" style="width:60px; background:rgba(255,255,255,0.2);"></div>
+        </div>
+
+        <div class="goal-content" style="position:relative; z-index:1;">
+            <span class="badge">Our Goal</span>
+            <h2>We Want to Help You Keep the Customers You Already Have</h2>
+            <p>
+                We started ChurnGuard because we were tired of seeing businesses lose good customers
+                — and not even see it coming. Our goal is simple: give you the insight to act before
+                it's too late.
+            </p>
+            <p>
+                Too many organizations rely on guesswork when it comes to retention — waiting until a
+                customer has already cancelled before taking action. ChurnGuard applies machine
+                learning models trained on real customer data to surface early warning signs that are
+                easy to miss, giving your team the time and clarity needed to retain valuable
+                customers before it's too late.
+            </p>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section" style="position:relative;">
+        <div class="geo-shape" style="top:-10px; left:10%;">
+            <div class="geo-circle-sm" style="width:24px; height:24px;"></div>
+        </div>
+        <div class="geo-shape" style="top:50%; right:8%; transform:translateY(-50%);">
+            <div class="geo-diamond" style="width:20px; height:20px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:-8px; left:25%;">
+            <div class="geo-dot" style="width:8px; height:8px;"></div>
+        </div>
+        <div class="geo-shape" style="top:5px; right:20%;">
+            <div class="geo-corner" style="width:12px; height:12px;"></div>
+        </div>
+        <div class="geo-shape" style="bottom:5px; right:35%;">
+            <span class="geo-label">verified</span>
+        </div>
+        <div class="geo-shape" style="top:50%; left:5%; transform:translateY(-50%);">
+            <div class="geo-line-h" style="width:40px;"></div>
+        </div>
+        <p>Trusted by Risk and Retention Teams at Leading Global Institutions</p>
+    </section>
+
+    <!-- Spacer decorations -->
+    <div class="spacer" style="position:relative;">
+        <div class="geo-shape" style="top:10px; left:15%;">
+            <div class="geo-circle-sm" style="width:16px; height:16px;"></div>
+        </div>
+        <div class="geo-shape" style="top:20px; left:50%;">
+            <div class="geo-dot" style="width:5px; height:5px;"></div>
+        </div>
+        <div class="geo-shape" style="top:15px; right:18%;">
+            <div class="geo-square" style="width:12px; height:12px;"></div>
+        </div>
+        <div class="geo-shape" style="top:25px; right:40%;">
+            <span class="geo-label" style="font-size:0.5rem;">v4.2.1</span>
+        </div>
+        <div class="geo-shape" style="top:8px; left:35%;">
+            <div class="geo-diamond" style="width:14px; height:14px;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

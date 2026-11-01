@@ -1,0 +1,33 @@
+<footer class="footer"{% if show_footer_geo %} style="position:relative;"{% endif %}>
+    {% if show_footer_geo %}
+    <div class="geo-shape" style="top:15px; left:20px;">
+        <div class="geo-corner" style="border-color:rgba(255,255,255,0.2); width:14px; height:14px;"></div>
+    </div>
+    <div class="geo-shape" style="top:20px; right:25px;">
+        <div class="geo-diamond" style="border-color:rgba(255,255,255,0.2); width:16px; height:16px;"></div>
+    </div>
+    <div class="geo-shape" style="bottom:15px; left:40%;">
+        <div class="geo-dot" style="background:rgba(255,255,255,0.25); width:6px; height:6px;"></div>
+    </div>
+    {% endif %}
+
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                ChurnGuard
+            </div>
+            <p class="footer-copy">&copy; {{ current_year }} ChurnGuard Inc. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            {% for domain in nav_domains %}
+            <a href="{{ url_for('pages.form', domain=domain.key) }}">{{ domain.footer_label }}</a>
+            {% endfor %}
+            <a href="{{ url_for('api.list_domains') }}">API Documentation</a>
+            <a href="#">Security &amp; Compliance</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>

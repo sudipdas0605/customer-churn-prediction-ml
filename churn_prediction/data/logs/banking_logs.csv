@@ -1,0 +1,2 @@
+user_id,date_of_birth,age,gender,geography,credit_score,tenure,balance,num_of_products,estimated_salary,has_credit_card,is_active_member,card_type,satisfaction_score,points_earned,predicted_churn,churn_probability,actual_outcome,timestamp
+,,29,Male,France,768,14,80000,2,35000,1,1,PLATINUM,4,97,0,16.64,,2026-11-01 15:51:10

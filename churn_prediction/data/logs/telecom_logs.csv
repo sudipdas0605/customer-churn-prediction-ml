@@ -1,0 +1,4 @@
+name,dob,Age,Gender,SeniorCitizen,Partner,Dependents,TenureMonths,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,predicted_churn,churn_probability,actual_outcome,timestamp
+Priya Sharma,1998-03-09,28,Female,No,Yes,No,24,Yes,No,Fiber optic,No,Yes,No,No,Yes,No,Month-to-month,Yes,Electronic check,80,1920,1,72.66,,2026-09-09 10:58:10
+Tanu Sharma,2001-07-09,60,Female,No,Yes,Yes,2,Yes,No,DSL,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),20,240,1,56.17,,2026-09-09 11:39:59
+Baseline,,40,Female,No,Yes,No,24,Yes,Yes,Fiber optic,No,Yes,No,No,Yes,No,One year,Yes,Electronic check,70.5,1700.25,0,44.0,,2026-11-01 15:03:36

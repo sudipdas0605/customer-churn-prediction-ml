@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - ChurnGuard{% endblock %}
+
+{% block content %}
+<main class="main-content" style="padding-top: 80px;">
+    <!-- Hero -->
+    <div class="contact-hero">
+        <div class="hero-badge">&#128737; Support &amp; Customer Success</div>
+        <h1 class="hero-title contact-hero-title">
+            Contact the ChurnGuard<br>Support Team
+        </h1>
+        <p class="hero-desc">
+            Need assistance with your predictive telemetry, API integrations, or churn models?
+            Reach out directly to our dedicated support teams.
+        </p>
+    </div>
+
+    <!-- How to Contact -->
+    <div class="contact-howto">
+        <div class="howto-header">
+            <h2>&#10003;&#65039; How to Contact the Support Team</h2>
+        </div>
+        <div class="howto-steps">
+            {% for title, body in steps %}
+            <div class="howto-step">
+                <div class="step-num">{{ loop.index }}</div>
+                <h3>{{ title }}</h3>
+                <p>{{ body }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="contact-grid contact-grid--single">
+        <div class="contact-left">
+            <div class="contact-card">
+                <h2>&#128222; Support Phone Number</h2>
+                <div class="phone-item">
+                    <div>
+                        <strong>{{ phone.label }}</strong>
+                        <span class="badge-success">{{ phone.badge }}</span>
+                        <p>{{ phone.number }}</p>
+                    </div>
+                    <a href="tel:{{ phone.tel }}" class="btn-call">&#128222; Call Now</a>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="email-header">
+                    <h2>&#9993; Support Email</h2>
+                    <span class="click-compose">Click to compose</span>
+                </div>
+                <div class="email-grid">
+                    {% for email in emails %}
+                    <div class="email-item">
+                        <span class="email-dot"></span>
+                        <div>
+                            <strong>{{ email.label }}</strong>
+                            <a href="mailto:{{ email.address }}">{{ email.address }}</a>
+                            <p>{{ email.note }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

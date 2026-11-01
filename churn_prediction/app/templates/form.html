@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from 'macros/forms.html' import render_field %}
+
+{% block title %}{{ schema.title }} - ChurnGuard{% endblock %}
+
+{% block content %}
+<main class="main-content" style="padding-top: 80px;">
+    <a href="{{ url_for('pages.index') }}" class="back-link">&#8592; Back to Home</a>
+
+    <div class="form-card">
+        <h1>{{ schema.icon }} {{ schema.title }}</h1>
+        <p class="subtitle">Enter customer details below to predict churn risk</p>
+
+        {% if error_message %}
+        <div class="alert alert-error">{{ error_message }}</div>
+        {% endif %}
+
+        <form action="{{ url_for('pages.predict', domain=schema.domain) }}" method="POST" data-predict-form>
+            {% for row in schema.rows %}
+            <div class="form-row">
+                {% for field in row %}
+                {{ render_field(field, values.get(field.name, ''), errors.get(field.name, '')) }}
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">Predict Churn</button>
+        </form>
+    </div>
+</main>
+{% endblock %}
